@@ -6,9 +6,11 @@ import ProtectedRoute from "./ProtectedRoute";
 import AppleLandingPage from "../pages/AppleLandingPage";
 import { UserContext } from "./UserContext";
 
-const initialState = { name: "", email: "", password: "", loggedIn: false };
+const loggedIn = window.sessionStorage.getItem("user")?.loggedIn || false;
+const initialState = { name: "", email: "", password: "", loggedIn };
 
-export default function AppRouter() {
+export default function AppRouter() {  
+
   const [user, setUser] = useState(initialState);
 
   return (

@@ -19,7 +19,7 @@ function SignUpPage(props) {
   const handleSignUp = e => {
     e.preventDefault();
     const userDetails = { ...form, loggedIn: false };
-    window.localStorage.setItem("user", userDetails);
+    window.sessionStorage.setItem("user", JSON.stringify(userDetails));
     setUser(userDetails);
     history.push("/signin");
   };

@@ -19,11 +19,12 @@ function SignInPage() {
 
   const handleSignIn = e => {
     e.preventDefault();
-    console.log({ form, user });
 
-    if (form.email === user.email && form.password === user.password) {
+    const isUser = form.email === user.email && form.password === user.password;
+
+    if (isUser) {
       const userDetails = { ...user, loggedIn: true };
-      window.localStorage.setItem("user", userDetails);
+      window.sessionStorage.setItem("user", JSON.stringify(userDetails));
       setUser(userDetails);
       history.push("/apple");
     }
