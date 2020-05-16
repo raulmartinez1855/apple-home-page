@@ -1,24 +1,60 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   SignInWrapper,
   SignInFormWrapper,
   FooterText
 } from "../components/SignInStyles";
+import { UserContext } from "../components/UserContext";
 
-function SignUpPage() {
+const initialState = { email: "", name: "", password: "" };
+
+function SignUpPage(props) {
+  const { setUser } = useContext(UserContext);
+  const history = useHistory();
+
+  const [form, setForm] = useState(initialState);
+
+  const handleSignUp = e => {
+    e.preventDefault();
+    const userDetails = { ...form, loggedIn: false };
+    window.localStorage.setItem("user", userDetails);
+    setUser(userDetails);
+    history.push("/signin");
+  };
+  const handleInputChange = e =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
   return (
     <SignInWrapper>
       <SignInFormWrapper>
         <h2>Sign-Up</h2>
-        <form>
+        <form onSubmit={handleSignUp}>
           <label>Full Name</label>
-          <input required type="text" placeholder="John Doe" />
+          <input
+            required
+            type="text"
+            name="name"
+            placeholder="John Doe"
+            onChange={handleInputChange}
+          />
           <label>Email</label>
-          <input required type="email" placeholder="user@example.com" />
+          <input
+            required
+            type="email"
+            name="email"
+            placeholder="user@example.com"
+            onChange={handleInputChange}
+          />
           <label>Password</label>
-          <input required type="password" placeholder="***************" />
+          <input
+            required
+            type="password"
+            name="password"
+            placeholder="***************"
+            onChange={handleInputChange}
+          />
           <Button type="submit">Sign-Up</Button>
         </form>
         <FooterText leftAlign>
