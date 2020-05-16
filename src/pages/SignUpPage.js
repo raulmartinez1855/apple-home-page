@@ -1,22 +1,31 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {
+  Button,
+  SignInWrapper,
+  SignInFormWrapper,
+  FooterText
+} from "../components/SignInStyles";
 
 function SignUpPage() {
   return (
-    <div>
-      <form>
-        <label>Full Name</label>
-        <input />
-        <label>Email</label>
-        <input />
-        <label>Password</label>
-        <input />
-        <button>Sign-In</button>
-      </form>
-      <p>
-        Not registered? <Link to="/signup">Sign-Up</Link>
-      </p>
-    </div>
+    <SignInWrapper>
+      <SignInFormWrapper>
+        <h2>Sign-Up</h2>
+        <form>
+          <label>Full Name</label>
+          <input required type="text" placeholder="John Doe" />
+          <label>Email</label>
+          <input required type="email" placeholder="user@example.com" />
+          <label>Password</label>
+          <input required type="password" placeholder="***************" />
+          <Button type="submit">Sign-Up</Button>
+        </form>
+        <FooterText leftAlign>
+          Already registered? <Link to="/signin">Sign-In</Link>
+        </FooterText>
+      </SignInFormWrapper>
+    </SignInWrapper>
   );
 }
 
