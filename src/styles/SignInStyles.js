@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const moveDownBgAnimation = keyframes`  
+  0%{background-position:91% 100%}  
+  100%{background-position:10% 0%}
+`;
+const fadeInAnimation = keyframes`  
+  0%{opacity: 0}  
+  100%{opacity: 1}  
+`;
 
 export const Button = styled.button`
   background: #000;
@@ -45,7 +54,8 @@ export const Button = styled.button`
 `;
 
 export const SignInWrapper = styled.div`
-  background: linear-gradient(#5ac8fa 10%, white 60%);
+  background: linear-gradient(#5ac8fa 10%, white 30%);
+  background-size: 200% 200%;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -53,6 +63,7 @@ export const SignInWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation: 1s ${moveDownBgAnimation} ease-out;
 `;
 export const FooterText = styled.p`
   font-size: 14px;
@@ -63,6 +74,7 @@ export const FooterText = styled.p`
 `;
 
 export const SignInFormWrapper = styled.div`
+  animation: 1s ${fadeInAnimation} ease-in;
   background: white;
   padding: 50px 0;
   margin: 0;

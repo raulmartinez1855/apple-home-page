@@ -15,16 +15,16 @@ const initialState = currentUser || {
 };
 
 export default function AppRouter() {
-  console.log(currentUser);
   const [user, setUser] = useState(initialState);
 
   return (
     <Router>
       <Switch>
         <UserContext.Provider value={{ user, setUser }}>
-          <Route exact path="/" component={SignInPage} />
+          <Route exact path="/" component={AppleLandingPage} />
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/signin" component={SignInPage} />
+          <Route exact path="/macpro" component={AppleLandingPage} />
           <ProtectedRoute exact path="/apple" component={AppleLandingPage} />
         </UserContext.Provider>
       </Switch>

@@ -5,7 +5,7 @@ import {
   SignInWrapper,
   SignInFormWrapper,
   FooterText
-} from "../components/SignInStyles";
+} from "../styles/SignInStyles";
 import { UserContext } from "../components/UserContext";
 
 const initialState = { email: "", name: "", password: "" };
