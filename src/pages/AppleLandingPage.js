@@ -41,7 +41,16 @@ function AppleLandingPage() {
           <NavBarSpan>iPhone</NavBarSpan>
           <NavBarSpan currentSelection>Macbook Pro</NavBarSpan>
           <NavBarSpan>Watch</NavBarSpan>
-          <NavBarButton onClick={() => setUser({ ...user, loggedIn: false })}>
+          <NavBarButton
+            onClick={() => {
+              const userDetails = { ...user, loggedIn: false };
+              window.sessionStorage.setItem(
+                "user",
+                JSON.stringify(userDetails)
+              );
+              setUser(userDetails);
+            }}
+          >
             Logout
           </NavBarButton>
         </NavBarContainer>
