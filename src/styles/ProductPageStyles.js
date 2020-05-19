@@ -1,12 +1,41 @@
 import styled, { keyframes } from "styled-components";
 
-const moveDownBgAnimation = keyframes`  
-  0%{background-position:91% 100%}  
-  100%{background-position:10% 0%}
-`;
+// const moveDownBgAnimation = keyframes`
+//   0%{background-position:91% 100%}
+//   100%{background-position:10% 0%}
+// `;
 
+export const ProductFeature = styled.h4`
+  color: #cccccc;
+  font-size: 50px;
+  margin: 0;
+  text-align: left;
+  span {
+    display: block;
+    font-size: 20px;
+    margin-top: -15px;
+  }
+`;
+export const ProductTitle = styled.h5`
+  color: #5ac8fa;
+  font-size: 32px;
+  margin: 0 0 30px 0;
+`;
+export const ProductSlogan = styled.h2`
+  font-size: 100px;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.1;
+  width: 630px;
+  margin: 0 0 90px 0;
+`;
+export const ProductFeaturesContainer = styled.div`
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+`;
 export const Column = styled.div`
-  background: blue;
+  background: #ffffff;
   position: relative;
   display: block;
   width: 100px;
@@ -15,10 +44,46 @@ export const Column = styled.div`
   flex-grow: 1;
 `;
 
+export const ProductCopyColumn = styled.div`
+  background: #000;
+  width: 100px;
+  display: flex;
+  width: 680px;
+  flex-shrink: 0;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 80px;
+  padding-top: 80px;
+`;
 export const ProductDisplay = styled.div`
-  background: black;
+  background: #000;
+  /* height: 40vw; */
   height: 615px;
   width: 100%;
+  display: flex;
+`;
+
+export const ProductIcon = styled.img`
+  margin: 20px;
+`;
+
+export const ProductDisplayImage = styled.img`
+  width: 920px;
+  /* opacity: 0.7; */
+`;
+
+export const IconColumn = styled.div`
+  background: #000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 70px;
+`;
+export const ProductPage = styled.div`
+  width: 1920px;
+  background-color: #ffffff;
 `;
 export const ProductDisplaySection = styled.div`
   display: flex;
@@ -26,16 +91,21 @@ export const ProductDisplaySection = styled.div`
   margin-top: 2px;
 `;
 
+export const CallToActionSection = styled.div`
+  min-height: 360px;
+  height: 100%;
+`;
 export const NavBar = styled.div`
   width: 100%;
   background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  img {
-    cursor: pointer;
-    width: 100px;
-  }
+`;
+
+export const NavBarLogo = styled.img`
+  cursor: pointer;
+  width: 100px;
 `;
 export const NavBarSpan = styled.span`
   margin: 0 20px;
@@ -69,6 +139,7 @@ export const NavBarButton = styled.button`
   font-size: 20px;
   color: #ffffff;
   cursor: pointer;
+  margin-right: 100px;
   background-color: #5ac8fa;
   transition: all 100ms ease-in;
   &:hover {
