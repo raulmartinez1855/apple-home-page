@@ -9,7 +9,7 @@ const fadeInAnimation = keyframes`
   100%{opacity: 1}  
 `;
 
-export const Button = styled.button`
+export const SignInButton = styled.button`
   background: #000;
   border: none;
   color: white;
@@ -53,7 +53,34 @@ export const Button = styled.button`
   }
 `;
 
-export const SignInWrapper = styled.div`
+export const SignInLabel = styled.label`
+  margin-bottom: 10px;
+`;
+export const SignInInput = styled.input`
+  width: 65vw;
+  max-width: 411px;
+  height: 58px;
+  border: 1px solid #707070;
+  margin-bottom: 20px;
+  padding: 0 15px;
+  font-size: 15px;
+  ::placeholder {
+    color: #cccccc;
+    letter-spacing: 2px;
+  }
+`;
+export const SignInHeader = styled.h2`
+  font-size: 36px;
+  font-family: "Poppins-Bold";
+`;
+export const SignInForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
+
+export const SignInPageContainer = styled.div`
   background: linear-gradient(#5ac8fa 10%, white 30%);
   background-size: 200% 200%;
   height: 100%;
@@ -88,30 +115,4 @@ export const SignInFormWrapper = styled.div`
   align-items: center;
   width: 80vw;
   max-width: 510px;
-  h2 {
-    font-size: 36px;
-    font-weight: bold;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-  input {
-    width: 65vw;
-    max-width: 411px;
-    height: 58px;
-    border: 1px solid #707070;
-    margin-bottom: 20px;
-    padding: 0 15px;
-    font-size: 15px;
-    ::placeholder {
-      color: #cccccc;
-      letter-spacing: 2px;
-    }
-  }
-  label {
-    margin-bottom: 10px;
-  }
 `;

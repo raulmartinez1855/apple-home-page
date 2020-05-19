@@ -1,34 +1,64 @@
 import styled, { keyframes } from "styled-components";
 
-// const moveDownBgAnimation = keyframes`
-//   0%{background-position:91% 100%}
-//   100%{background-position:10% 0%}
-// `;
+const negativeMarginTop = keyframes`
+  0%{margin-top:0}
+  100%{margin-top:-130px}
+`;
+const translateXleft = keyframes`
+  0%{transform: translateX(200px)}
+  100%{transform: translateX(0)}
+`;
 
+export const ProductFeatureSpan = styled.span`
+  display: block;
+  font-size: 20px;
+  margin-top: -15px;
+  font-family: "Poppins";
+`;
 export const ProductFeature = styled.h4`
   color: #cccccc;
   font-size: 50px;
   margin: 0;
+  font-family: "Poppins-Bold";
   text-align: left;
-  span {
-    display: block;
-    font-size: 20px;
-    margin-top: -15px;
-  }
 `;
 export const ProductTitle = styled.h5`
   color: #5ac8fa;
   font-size: 32px;
+  font-family: "Poppins-Bold";
   margin: 0 0 30px 0;
 `;
 export const ProductSlogan = styled.h2`
   font-size: 100px;
   color: #ffffff;
   text-align: left;
+  font-family: "Poppins-Bold";
   line-height: 1.1;
-  width: 630px;
+  width: 640px;
   margin: 0 0 90px 0;
 `;
+export const SubscribeButton = styled.button`
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins-Bold";
+  background-color: #000;
+  width: 174px;
+  height: 59px;
+  margin-left: 15px;
+`;
+export const SubscribeInput = styled.input`
+  height: 55px;
+  width: 394px;
+  padding: 0 15px;
+  color: #000;
+  font-size: 14px;
+  ::placeholder {
+    color: #cccccc;
+    font-size: 14px;
+  }
+`;
+export const SubscribeForm = styled.form``;
 export const ProductFeaturesContainer = styled.div`
   width: 400px;
   display: flex;
@@ -55,10 +85,12 @@ export const ProductCopyColumn = styled.div`
   justify-content: flex-start;
   padding-left: 80px;
   padding-top: 80px;
+  * {
+    animation: 1s ${translateXleft} ease-out forwards;
+  }
 `;
 export const ProductDisplay = styled.div`
   background: #000;
-  /* height: 40vw; */
   height: 615px;
   width: 100%;
   display: flex;
@@ -66,11 +98,20 @@ export const ProductDisplay = styled.div`
 
 export const ProductIcon = styled.img`
   margin: 20px;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const ProductDisplayImage = styled.img`
   width: 920px;
-  /* opacity: 0.7; */
+  opacity: 0.7;
+  transition: all 150ms ease;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const IconColumn = styled.div`
@@ -83,6 +124,8 @@ export const IconColumn = styled.div`
 `;
 export const ProductPage = styled.div`
   width: 1920px;
+  height: 100%;
+  min-height: 1080px;
   background-color: #ffffff;
 `;
 export const ProductDisplaySection = styled.div`
@@ -91,10 +134,48 @@ export const ProductDisplaySection = styled.div`
   margin-top: 2px;
 `;
 
-export const CallToActionSection = styled.div`
-  min-height: 360px;
-  height: 100%;
+export const BuyNowLink = styled.span`
+  color: #5ac8fa;
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: "Poppins-SemiBold";
 `;
+export const PurchaseCallToAction = styled.div`
+  width: 450px;
+  flex-shrink: 0;
+`;
+export const CallToActionSection = styled.div`
+  background-color: #ffffff;
+  min-height: 280px;
+  padding-top: 80px;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const SubscribeHeader = styled.h2`
+  font-size: 36px;
+  font-family: "Poppins-bold";
+  margin: 0 0 10px 0;
+`;
+export const SubscribeSection = styled.div`
+  padding: 70px 0 70px 105px;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  background: #f2f2f2;
+  height: 180px;
+  animation: 1s ${negativeMarginTop} ease-out forwards;
+`;
+export const BackgroundImage = styled.div`
+  background: url("/macDesk2.png");
+  background-size: cover;
+  background-position: bottom;
+  flex-shrink: 0;
+  width: 670px;
+`;
+
+export const NavBarContainer = styled.div``;
+
 export const NavBar = styled.div`
   width: 100%;
   background: #ffffff;
@@ -113,7 +194,8 @@ export const NavBarSpan = styled.span`
   font-size: 20px;
   position: relative;
   color: ${props => (props.currentSelection ? "#000" : "#707070")};
-  font-weight: ${props => (props.currentSelection ? "700" : "400")};
+  font-family: ${props =>
+    props.currentSelection ? "Poppins-Bold" : "Poppins"};
   &:hover:before {
     visibility: visible;
     transform: scaleX(1);

@@ -5,34 +5,46 @@ import {
   NavBarSpan,
   ProductTitle,
   ProductPage,
+  NavBarContainer,
+  ProductFeatureSpan,
   ProductFeature,
+  SubscribeHeader,
   ProductSlogan,
   NavBarLogo,
   CallToActionSection,
+  SubscribeSection,
+  SubscribeButton,
+  SubscribeInput,
   ProductDisplay,
   ProductFeaturesContainer,
   IconColumn,
+  SubscribeForm,
   ProductIcon,
+  PurchaseCallToAction,
+  BuyNowLink,
   ProductCopyColumn,
   ProductDisplayImage,
+  BackgroundImage,
   NavBarButton,
   ProductDisplaySection
 } from "../styles/ProductPageStyles";
 import { UserContext } from "../components/UserContext";
 
 function AppleLandingPage() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   return (
     <ProductPage>
       <NavBar>
         <NavBarLogo alt="Apple Logo" src="/appleLogo.png" />
-        <div>
+        <NavBarContainer>
           <NavBarSpan>iPhone</NavBarSpan>
           <NavBarSpan currentSelection>Macbook Pro</NavBarSpan>
           <NavBarSpan>Watch</NavBarSpan>
-          <NavBarButton>Notify Me</NavBarButton>
-        </div>
+          <NavBarButton onClick={() => setUser({ ...user, loggedIn: false })}>
+            Logout
+          </NavBarButton>
+        </NavBarContainer>
       </NavBar>
       <ProductDisplaySection>
         <Column />
@@ -42,10 +54,10 @@ function AppleLandingPage() {
             <ProductSlogan>More power. More pro</ProductSlogan>
             <ProductFeaturesContainer>
               <ProductFeature>
-                8-core<span>Intel processor</span>
+                8-core<ProductFeatureSpan>Intel processor</ProductFeatureSpan>
               </ProductFeature>
               <ProductFeature>
-                32GB<span>Memory</span>
+                32GB<ProductFeatureSpan>Memory</ProductFeatureSpan>
               </ProductFeature>
             </ProductFeaturesContainer>
           </ProductCopyColumn>
@@ -58,8 +70,17 @@ function AppleLandingPage() {
         </ProductDisplay>
       </ProductDisplaySection>
       <CallToActionSection>
-        <Column />
-        <div>hello</div>
+        <PurchaseCallToAction>
+          <BuyNowLink>Buy Now &gt;</BuyNowLink>
+        </PurchaseCallToAction>
+        <BackgroundImage />
+        <SubscribeSection>
+          <SubscribeHeader>Subscribe Now</SubscribeHeader>
+          <SubscribeForm onSubmit={e => e.preventDefault()}>
+            <SubscribeInput type="text" placeholder="Enter the email address" />
+            <SubscribeButton type="submit">Subscribe</SubscribeButton>
+          </SubscribeForm>
+        </SubscribeSection>
       </CallToActionSection>
     </ProductPage>
   );

@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
-  Button,
-  SignInWrapper,
+  SignInButton,
   SignInFormWrapper,
+  SignInPageContainer,
+  SignInForm,
+  SignInInput,
+  SignInLabel,
+  SignInHeader,
   FooterText
 } from "../styles/SignInStyles";
 import { UserContext } from "../components/UserContext";
@@ -27,41 +31,42 @@ function SignUpPage(props) {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <SignInWrapper>
+    <SignInPageContainer>
       <SignInFormWrapper>
-        <h2>Sign-Up</h2>
-        <form onSubmit={handleSignUp}>
-          <label>Full Name</label>
-          <input
+        <SignInHeader>Sign-Up</SignInHeader>
+        <SignInForm onSubmit={handleSignUp}>
+          <SignInLabel>Full Name</SignInLabel>
+          <SignInInput
             required
             type="text"
             name="name"
             placeholder="John Doe"
             onChange={handleInputChange}
           />
-          <label>Email</label>
-          <input
+          <SignInLabel>Email</SignInLabel>
+          <SignInInput
             required
             type="email"
             name="email"
             placeholder="user@example.com"
             onChange={handleInputChange}
           />
-          <label>Password</label>
-          <input
+          <SignInLabel>Password</SignInLabel>
+          <SignInInput
             required
             type="password"
             name="password"
+            minLength={8}
             placeholder="***************"
             onChange={handleInputChange}
           />
-          <Button type="submit">Sign-Up</Button>
-        </form>
+          <SignInButton type="submit">Sign-Up</SignInButton>
+        </SignInForm>
         <FooterText leftAlign>
           Already registered? <Link to="/signin">Sign-In</Link>
         </FooterText>
       </SignInFormWrapper>
-    </SignInWrapper>
+    </SignInPageContainer>
   );
 }
 

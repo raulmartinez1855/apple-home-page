@@ -21,10 +21,9 @@ export default function AppRouter() {
     <Router>
       <Switch>
         <UserContext.Provider value={{ user, setUser }}>
-          <Route exact path="/" component={AppleLandingPage} />
+          <Route exact path="/" component={SignInPage} />
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/signin" component={SignInPage} />
-          <Route exact path="/macpro" component={AppleLandingPage} />
           <ProtectedRoute exact path="/apple" component={AppleLandingPage} />
         </UserContext.Provider>
       </Switch>

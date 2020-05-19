@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
-  Button,
-  SignInWrapper,
+  SignInButton,
+  SignInPageContainer,
   SignInFormWrapper,
+  SignInForm,
+  SignInLabel,
+  SignInInput,
+  SignInHeader,
   FooterText
 } from "../styles/SignInStyles";
 import { UserContext } from "../components/UserContext";
@@ -33,33 +37,33 @@ function SignInPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <SignInWrapper>
+    <SignInPageContainer>
       <SignInFormWrapper>
-        <h2>Sign-In</h2>
-        <form onSubmit={handleSignIn}>
-          <label>Email</label>
-          <input
+        <SignInHeader>Sign-In</SignInHeader>
+        <SignInForm onSubmit={handleSignIn}>
+          <SignInLabel>Email</SignInLabel>
+          <SignInInput
             required
             type="email"
             name="email"
             onChange={handleInputChange}
             placeholder="user@example.com"
           />
-          <label>Password</label>
-          <input
+          <SignInLabel>Password</SignInLabel>
+          <SignInInput
             required
             type="password"
             name="password"
             onChange={handleInputChange}
             placeholder="***************"
           />
-          <Button type="submit">Sign-In</Button>
-        </form>
+          <SignInButton type="submit">Sign-In</SignInButton>
+        </SignInForm>
         <FooterText>
           Not registered? <Link to="/signup">Sign-Up</Link>
         </FooterText>
       </SignInFormWrapper>
-    </SignInWrapper>
+    </SignInPageContainer>
   );
 }
 

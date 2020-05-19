@@ -8,7 +8,7 @@ body {
   height: 100%;
   width: 100%;
   font-size: 10px;
-  background-color: #d4cab978;
+  background-color: #ffffff;
 }
 
 #root {
@@ -16,4 +16,7 @@ body {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
+  -webkit-box-shadow: 0px 2px 15px -5px rgba(8, 1, 8, 1);
+  -moz-box-shadow: 0px 2px 15px -5px rgba(8, 1, 8, 1);
+  box-shadow: 0px 2px 15px -5px rgba(8, 1, 8, 1);
 }
