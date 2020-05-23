@@ -4,10 +4,6 @@ const moveDownBgAnimation = keyframes`
   0%{background-position:91% 100%}  
   100%{background-position:10% 0%}
 `;
-const fadeInAnimation = keyframes`  
-  0%{opacity: 0}  
-  100%{opacity: 1}  
-`;
 
 export const SignInButton = styled.button`
   background: #000;
@@ -101,7 +97,6 @@ export const FooterText = styled.p`
 `;
 
 export const SignInFormWrapper = styled.div`
-  animation: 1s ${fadeInAnimation} ease-in;
   background: white;
   padding: 50px 0;
   margin: 0;
