@@ -1,9 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const negativeMarginTop = keyframes`
-  0%{margin-top:0}
-  100%{margin-top:-130px}
-`;
 const translateXleft = keyframes`
   0%{transform: translateX(200px)}
   100%{transform: translateX(0)}
@@ -164,7 +160,7 @@ export const SubscribeSection = styled.div`
   text-align: left;
   background: #f2f2f2;
   height: 180px;
-  animation: 1s ${negativeMarginTop} ease-out forwards;
+  margin-top: -130px;
 `;
 export const BackgroundImage = styled.div`
   background: url("/macDesk2.png");
@@ -178,6 +174,7 @@ export const NavBarContainer = styled.div``;
 
 export const NavBar = styled.div`
   width: 100%;
+  height: 100px;
   background: #ffffff;
   display: flex;
   justify-content: space-between;
